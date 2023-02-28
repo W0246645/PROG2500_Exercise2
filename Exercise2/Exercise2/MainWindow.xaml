@@ -6,7 +6,45 @@
         xmlns:local="clr-namespace:Exercise2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <!--<a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by NajmunNahar - Flaticon</a>-->
+    <!--<a href="https://www.flaticon.com/free-icons/product" title="product icons">Product icons created by Freepik - Flaticon</a>-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="home" UriSource="/Images/home-button.png"/>
+            <BitmapImage x:Key="product" UriSource="/Images/product.png"/>
+            <Style TargetType="MenuItem">
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Pages">
+                <MenuItem Header="_Home" Click="HomeButton_Click">                                           
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource home}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_View Products" Click="ProductButton_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource product}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ToolBar DockPanel.Dock="Left">
+            <StackPanel Orientation="Vertical" Width="50">
+                <Button x:Name="HomeButton" Click="HomeButton_Click" ToolTip="Go to Home Page">
+                    <Image Source="{StaticResource home}"/>
+                </Button>
+                <Button x:Name="ProductButton" Click="ProductButton_Click" ToolTip="Go to Products Page">
+                    <Image Source="{StaticResource product}"/>
+                </Button>
+            </StackPanel>
+        </ToolBar>
+        <Frame x:Name="mainFrame" Height="Auto" Width="Auto" NavigationUIVisibility="Hidden"/>
+    </DockPanel>
 </Window>

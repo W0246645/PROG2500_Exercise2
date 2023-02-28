@@ -20,9 +20,26 @@ namespace Exercise2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Pages.Home homePage { get; set; }
+
+        public Pages.Product productPage { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            homePage = new Pages.Home();
+            productPage = new Pages.Product();
+            mainFrame.NavigationService.Navigate(homePage);
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(homePage);
+        }
+
+        private void ProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(productPage);
         }
     }
 }
