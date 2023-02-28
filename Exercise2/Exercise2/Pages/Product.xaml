@@ -14,21 +14,17 @@
         </CollectionViewSource>
     </Page.Resources>
     <StackPanel>
-        <TextBlock Text="Customer page" FontSize="48"></TextBlock>
+        <TextBlock Text="Product page" FontSize="48"></TextBlock>
         <!--<Button x:Name="Savebutton" Content="Save Changes" Click="Savebutton_Click"></Button>-->
-        <ListView x:Name="productListView" ItemsSource="{Binding Source={StaticResource productViewSource}}" Height="300">
+        <ListView x:Name="productListView" ItemsSource="{Binding Source={StaticResource productViewSource}}" Height="300" Width="700">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="local:Product">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding ProductName}"></TextBlock>
-                        <TextBlock Text="{Binding SupplierId}"></TextBlock>
-                        <TextBlock Text="{Binding CategoryId}"></TextBlock>
+                        <TextBlock Text=" | "></TextBlock>
                         <TextBlock Text="{Binding QuantityPerUnit}"></TextBlock>
-                        <TextBlock Text="{Binding UnitPrice}"></TextBlock>
-                        <TextBlock Text="{Binding UnitsInStock}"></TextBlock>
-                        <TextBlock Text="{Binding UnitsOnOrder}"></TextBlock>
-                        <TextBlock Text="{Binding ReorderLevel}"></TextBlock>
-                        <TextBlock Text="{Binding Discontinued}"></TextBlock>
+                        <TextBlock Text=" | "></TextBlock>
+                        <TextBlock Text="{Binding FormattedPrice}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
